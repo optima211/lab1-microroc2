@@ -1,0 +1,62 @@
+C51 COMPILER V6.22  LAB1                                                                   05/31/2020 15:29:39 PAGE 1   
+
+
+C51 COMPILER V6.22, COMPILATION OF MODULE LAB1
+OBJECT MODULE PLACED IN Lab1.OBJ
+COMPILER INVOKED BY: C:\Program Files (x86)\Keil\C51\BIN\C51.EXE Lab1.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          sfr SCON =0x98;    //объявление переменной SCON как регистра с адресом 0х98
+   2          sbit TI=0x99;      //объявление переменной TI как бита регистра с адресом 0х99
+   3          sfr SBUF=0x99;     //объявление переменной SBUF как регистра с адресом 0х99
+   4          sfr T3FD=0x9D;     //объявление переменной T3FD как регистра с адресом 0х9D
+   5          sfr T3CON=0x9E;    //объявление переменной T3CON как регистра с адресом 0х9E
+   6          main()
+   7          {
+   8   1      SCON=0x52;         //8 bit UART, разрешение работы приёмника и передатчика
+   9   1      T3FD=0x2D;
+  10   1      T3CON=0x83;        //DIV=3, таймер T3 включен
+  11   1      TI=0;              //устанавливаем флаг окончания передачи байта в «0»
+  12   1      SBUF=0x4E;          //передача байта символ «N»
+  13   1      while(!TI);        //ожидание завершения передачи байта
+  14   1      TI=0;
+  15   1      SBUF=0x65;          //передача байта символ «e»
+  16   1      while(!TI);
+  17   1      TI=0;
+  18   1      SBUF=0x64;          //передача байта символ «d»
+  19   1      while(!TI);
+  20   1      TI=0;
+  21   1      SBUF=0x7A;          //передача байта символ «z»
+  22   1      while(!TI);
+  23   1      TI=0;
+  24   1      SBUF=0x65;          //передача байта символ «e»
+  25   1      while(!TI);
+  26   1      TI=0;
+  27   1      SBUF=0x6C;          //передача байта символ «l»
+  28   1      while(!TI);
+  29   1      TI=0;
+  30   1      SBUF=0x79;          //передача байта символ «y»
+  31   1      while(!TI);
+  32   1      TI=0;
+  33   1      SBUF=0x75;          //передача байта символ «u»
+  34   1      while(!TI);
+  35   1      TI=0;
+  36   1      SBUF=0x6B;          //передача байта символ «k»
+  37   1      while(!TI);
+  38   1      while(1);          //бесконечный цикл
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     83    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
